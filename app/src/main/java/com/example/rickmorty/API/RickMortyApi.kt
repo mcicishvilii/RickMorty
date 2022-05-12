@@ -10,7 +10,7 @@ interface RickMortyApi {
 
     @Headers("platform: Web")
     @GET("character")
-    suspend fun getPopularMovies(
+    suspend fun getCharacters(
         @Query("api_key")
         apiKey: String
     ): PopularResponse

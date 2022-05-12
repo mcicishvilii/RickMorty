@@ -1,12 +1,9 @@
-package com.example.rickmorty
+package com.example.rickmorty.uipart.listscreen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import com.example.rickmorty.R
 import com.example.rickmorty.databinding.ActivityMainBinding
-import com.example.rickmorty.databinding.RickMortyItemLayoutBinding
-import com.example.rickmorty.fragments.RickMortyItemLayoutFragment
-import com.example.rickmorty.fragments.RickMortyListLayoutFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -17,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.flcontent,RickMortyListLayoutFragment())
+            replace(R.id.flcontent, RickMortyListLayoutFragment())
             addToBackStack(RickMortyListLayoutFragment::javaClass.name)
             commit()
         }

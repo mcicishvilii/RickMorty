@@ -1,4 +1,4 @@
-package com.example.rickmorty
+package com.example.rickmorty.uipart.listscreen
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
