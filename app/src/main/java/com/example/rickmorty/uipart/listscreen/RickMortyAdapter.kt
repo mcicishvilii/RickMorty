@@ -3,6 +3,7 @@ package com.example.rickmorty.uipart.listscreen
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.rickmorty.R
 import com.example.rickmorty.RickMortyModels.json.Result
 import com.example.rickmorty.databinding.RickMortyItemLayoutBinding
 
@@ -26,8 +27,26 @@ class RickMortyAdapter(val rickMortyList: MutableList<Result>):RecyclerView.Adap
     override fun onBindViewHolder(holder: RickMortyViewHolder, position: Int) {
 
         val item = rickMortyList[position]
-        holder.binding.listLayout.text = item.name
-        holder.binding.meore.text = item.gender
+        holder.binding.avatar.setImageURI("https://rickandmortyapi.com/api/character/avatar/${item.id}.jpeg")
+        holder.binding.characterName.text = item.name
+        holder.binding.GenderAndRace.text = "${item.status} - ${item.species}"
+        holder.binding.lastKnownLocation.text = "Last Known Location \n${item.location.name}"
+
+        if (item.gender == "Male"){
+            holder.binding.genderSing.setImageURI("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRASGnAmFZp3Ls9bK4kYmICpNd0b9OnJTrzIg&usqp=CAU")
+        }else if (item.gender == "Female"){
+            holder.binding.genderSing.setImageURI("https://cdn1.iconfinder.com/data/icons/medicine-pt-6/100/087_-_woman_gender_sex_female_gender_symbol-512.png")
+        }
+
+        if (item.status == "Alive"){
+            holder.binding.circle.setImageResource(R.drawable.circle_alive)
+        }else if (item.status == "Dead"){
+            holder.binding.circle.setImageResource(R.drawable.circle_dead)
+        }else{
+            holder.binding.circle.setImageResource(R.drawable.circle_unknown)
+        }
+
+
     }
 
     override fun getItemCount(): Int {

@@ -38,6 +38,7 @@ class RickMortyListLayoutFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setUpRecyclerView()
+
         viewModel.getCharsLiveData().observe(viewLifecycleOwner){
             badapter.updateList(it)
         }
