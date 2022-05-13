@@ -31,13 +31,12 @@ class RickMortyAdapter(val rickMortyList: MutableList<Result>):RecyclerView.Adap
     override fun onBindViewHolder(holder: RickMortyViewHolder, position: Int) {
 
         val item = rickMortyList[position]
-        holder.binding.avatar.setImageURI("https://rickandmortyapi.com/api/character/avatar/${item.id}.jpeg")
+        holder.binding.avatar.setImageURI("https://rickandmortyapi.com/api/character/avatar/${item.id}.jpeg") //პირდაპირ მოყვება imaage პარამეტრი
         holder.binding.characterName.text = item.name
         holder.binding.GenderAndRace.text = "${item.status} - ${item.species}"
         holder.binding.lastKnownLocation.text = "${item.location.name}"
 
         if (item.gender == "Male"){
-
             holder.binding.genderSing.setImageURI("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRASGnAmFZp3Ls9bK4kYmICpNd0b9OnJTrzIg&usqp=CAU")
         }else if (item.gender == "Female"){
             holder.binding.genderSing.setImageURI("https://cdn1.iconfinder.com/data/icons/medicine-pt-6/100/087_-_woman_gender_sex_female_gender_symbol-512.png")

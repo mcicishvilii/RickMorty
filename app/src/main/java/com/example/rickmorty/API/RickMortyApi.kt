@@ -14,4 +14,5 @@ interface RickMortyApi {
         @Query("api_key")
         apiKey: String
     ): PopularResponse
+    //არაა სსაჭირო ეს query პარამეტრი
 }

@@ -13,10 +13,9 @@ class ListScreenViewModel:ViewModel() {
     private val charsLiveData = MutableLiveData<List<Result>>()
     private val rickRepo = RickRepo.getInstance()
     init {
-        viewModelScope.launch { // ეს viewModelScope არის ავტომატურად ბექგგრაუნდ სრედი
+        viewModelScope.launch { // ეს viewModelScope არის ავტომატურად ბექგგრაუნდ სრედი //query  პარამეტრი არააა საჭირო
             charsLiveData.postValue(rickRepo.getChars("843c612d1207fdec63f0e6a5fd426d68").results)
         }
-
     }
 
     fun getCharsLiveData():LiveData<List<Result>>{
